@@ -8,7 +8,7 @@ function prettyPrint($a) {
 
 function err_skr()
     {
-        echo '<br><h3 class="text-center">FATALITY</h3><br><p class="text-center" style="font-size: 0.5em; font-weight: bolder;">
+        echo '<br><h3 class="text-center">FATALITY</h3><br><p class="text-center" style="font-size: 0.5em; font-weight: bolder">
 
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⠿⠿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>
@@ -51,7 +51,7 @@ function err_skr()
 
 function err_trl()
     {
-        echo '<br><h4 class="text-center">HEY SHERLOCK</h4><br><p class="text-center" style="font-size: 0.5em; font-weight: bolder;">
+        echo '<br><h4 class="text-center">HEY SHERLOCK</h4><br><p class="text-center" style="font-size: 0.5em; font-weight: bolder">
 
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⡤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⣤⣤⣤⣤⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀<br>
         ⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠟⠁⠀⠀⠀⢀⣠⡤⠖⢚⣛⣩⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⢛⣛⡻⠶⣤⣄⠀⠀⠀⠀⠀⠀⠀<br>
