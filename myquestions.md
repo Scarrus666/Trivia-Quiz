@@ -1,4 +1,4 @@
-Wie viele Saiten hat eine E-Gitarre?
+Wie viele Saiten hat eine E-Gitarre normalerweise?
 Folgender ist einen E-Gitarren Produzent.
 Man kann eine E-Gitarre im Freien spielen mit.
 Die E-Gitarre muss am Stromnetz angeschlossen sein.
@@ -9,3 +9,4 @@ Welche Komponente der E-Gitarre ist verantwortlich für die Erzeugung des Klangs
 Welche Art von Kabel wird benötigt, um eine E-Gitarre mit einem Verstärker zu verbinden?
 Was sind Tonabnehmer (Pickups) bei einer E-Gitarre und welche Rolle spielen sie?
 Wer hat die berühmte Single-Cut Form der E-gGitarre zuerst eingeführt?
+Wer ist Mick Thomson?
