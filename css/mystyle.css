@@ -1,9 +1,3 @@
-.error-font
-{
-    font-size: 0.5em;
-    font-weight: lighter;
-}
-
 body 
 {
     margin: 0;
@@ -21,36 +15,84 @@ body
   .header 
   {
     background-color: #3F4ED0;
+    font-family: impact;
     color: white;
     padding: 10px;
     position: fixed;
     border-bottom-left-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
-    box-shadow: 0 4px 6px rgb(255, 255, 255);
+    box-shadow: 0 0.125rem 0.175rem rgb(255, 255, 255);
     top: 0;
     width: 100%;
   }
 
+  .gap-header
+  {
+    margin-top: 10em; /* Adjust this value to leave space for the fixed header */
+  }
+
   .content 
   {
-    margin-top: 70px; /* Adjust this value to leave space for the fixed header */
-    padding: 20px;
+    padding: 1em;
     display: flex;
     flex-direction: row;
     align-items: center; /* Aligns items vertically */
-    gap: 1em;
+    gap: 0.125em;
   }
 
   .bubble 
   {
     background-color: white;
     border-radius: 15px;
-    padding: 15px;
-    width: 40%;
+    padding: 0.5em;
+    width: 30rem, 100%;
     box-shadow: 0 4px 6px rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centers content vertically */
+    margin-top: 0.75em;
+  }
+
+  .bubble-big
+  {
+    text-align: center;
+    font-size: 2.25em;
+    font-weight: bold;
+  }
+
+  .bubble-secondary
+  {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  .bubble-small
+  {
+    text-align: left;
+    font-size: 1em;
+    font-weight: normal;
+    width: 100%;
+  }
+
+  .bubble-submit
+  {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: normal;
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .image-container 
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    height: 80%;
+    justify-content: center; /* Centers images horizontally */
+    align-items: center; /* Centers images vertically */
   }
 
   .center-images
@@ -61,41 +103,7 @@ body
     gap: 20px;
     justify-content: center;
     align-items: center;
-  }
-
-  .bubble-big
-  {
-    text-align: center;
-    font-size: 2.25em;
-    font-weight: bold;
-  }
-
-  .bubble-small
-  {
-    text-align: left;
-    font-size: 1em;
-    font-weight: normal;
-  }
-
-  .image-container 
-  {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 25%;
-    height: 80%;
-    justify-content: center; /* Centers images horizontally */
-    align-items: center; /* Centers images vertically */
-  }
-
-  .image-container-2 
-  {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    width: 25%;
-    justify-content: center; /* Centers images horizontally */
-    align-items: center; /* Centers images vertically */
+    padding: 10%;
   }
 
   .image 
@@ -104,6 +112,7 @@ body
     border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 4 / 3;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
   }
 
   .image img
@@ -111,4 +120,42 @@ body
     object-fit: cover;
     height: 100%;
     width: 100%;
+  }
+
+  .images-div
+  {
+    width: 85%;
+  }
+
+  @media (max-width: 768px) {
+
+    .content 
+    {
+      flex-direction: column; /* Stack elements vertically */
+    }
+
+    .gap-header
+    {
+      margin-top: 5em; /* Adjust this value to leave space for the fixed header */
+    }
+  
+    .bubble-small 
+    {
+      margin-top: 1em; /* Add space between bubbles */
+    }
+  
+    .images-div {
+      width: 100%; /* Expand the width of image div */
+    }
+  
+    .center-images 
+    {
+      flex-direction: row; /* Stack images vertically */
+    }
+  
+    .image-container 
+    {
+      width: 100%; /* Adjust width of image containers */
+    }
+    
   }

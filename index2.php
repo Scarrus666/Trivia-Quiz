@@ -24,9 +24,11 @@
     </div>
 
     <div class="content gap-header">
+
         <div class="bubble bubble-big">
             <div>Do you know?</div>
         </div>
+
     </div>
 
     <div class="content">
@@ -63,24 +65,6 @@
 
         </div>
 
-    </div>
-
-    <div class="content">
-        <div class="bubble bubble-secondary">
-            <div>Choose the Quiz</div>
-        </div>
-    </div>
-
-    <div class="content">
-        <div class="bubble bubble-secondary">
-            <div>Questions:</div>
-        </div>
-    </div>
-
-    <div class="content">
-        <div class="bubble bubble-submit">
-            <div>Take the Quiz</div>
-        </div>
     </div>
 
 </div>
