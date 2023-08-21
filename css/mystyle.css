@@ -3,3 +3,112 @@
     font-size: 0.5em;
     font-weight: lighter;
 }
+
+body 
+{
+    margin: 0;
+    padding: 0;
+    background-image: url("/images/index.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: grey;
+    font-family: Arial, sans-serif;
+  }
+
+  .header 
+  {
+    background-color: #3F4ED0;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    box-shadow: 0 4px 6px rgb(255, 255, 255);
+    top: 0;
+    width: 100%;
+  }
+
+  .content 
+  {
+    margin-top: 70px; /* Adjust this value to leave space for the fixed header */
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Aligns items vertically */
+    gap: 1em;
+  }
+
+  .bubble 
+  {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    width: 40%;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+  }
+
+  .center-images
+  {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bubble-big
+  {
+    text-align: center;
+    font-size: 2.25em;
+    font-weight: bold;
+  }
+
+  .bubble-small
+  {
+    text-align: left;
+    font-size: 1em;
+    font-weight: normal;
+  }
+
+  .image-container 
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 25%;
+    height: 80%;
+    justify-content: center; /* Centers images horizontally */
+    align-items: center; /* Centers images vertically */
+  }
+
+  .image-container-2 
+  {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 25%;
+    justify-content: center; /* Centers images horizontally */
+    align-items: center; /* Centers images vertically */
+  }
+
+  .image 
+  {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .image img
+  {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
