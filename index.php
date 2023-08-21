@@ -20,7 +20,7 @@
     ?>
 
     <div class="header">
-        <h2>Geography Biology Zoology Languages and more! How well do you know?</h2>
+        <h2>Geography, Biology, Zoology, Languages and more! How well do you know?</h2>
     </div>
 
     <div class="content gap-header">
@@ -67,18 +67,21 @@
 
     <div class="content">
         <div class="bubble bubble-secondary">
+            <!-- Quiz selection -->
             <div>Choose the Quiz</div>
         </div>
     </div>
 
     <div class="content">
         <div class="bubble bubble-secondary">
+            <!-- Number of Questions -->
             <div>Questions:</div>
         </div>
     </div>
 
     <div class="content">
         <div class="bubble bubble-submit">
+            <!-- submit button -->
             <div>Take the Quiz</div>
         </div>
     </div>
