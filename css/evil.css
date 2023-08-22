@@ -1,0 +1,212 @@
+@font-face
+{
+    font-family: gothic;
+    src: url(/fonts/Pieces\ of\ Eight.ttf);
+    /* src: url(/fonts/MagnificChaosPersonalUseRegular-x3J88.ttf); */
+}
+
+@font-face
+{
+    font-family: gothicShadow;
+    src: url(/fonts/BlackletterShadow-6YAA.ttf);
+}
+
+body
+{
+    background-image: url("/images/guitar_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgb(44, 0, 0);
+}
+
+.header 
+{
+background-color: #000000;
+font-family: gothicShadow;
+color: white;
+padding: 10px;
+position: fixed;
+border-bottom-left-radius: 0.5em;
+border-bottom-right-radius: 0.5em;
+box-shadow: 0px 7.5px 15px rgb(97, 0, 0);
+top: 0;
+width: 100%;
+}
+
+.gap-header
+{
+margin-top: 10em; /* Adjust this value to leave space for the fixed header */
+}
+
+.content 
+{
+padding: 1em;
+display: flex;
+flex-direction: row;
+align-items: center; /* Aligns items vertically */
+gap: 0.125em;
+}
+
+.bubble 
+{
+font-family: gothic;
+color: white;
+background-color: rgb(0, 0, 0);
+border-radius: 5px;
+padding: 0.5em;
+width: 30rem, 100%;
+box-shadow: 0px 7.5px 15px 0px rgb(97, 0, 0);
+display: flex;
+flex-direction: column;
+justify-content: center; /* Centers content vertically */
+margin-top: 0.75em;
+}
+
+.bubble-big
+{
+text-align: center;
+font-size: 2.25em;
+font-weight: bold;
+}
+
+.bubble-secondary
+{
+text-align: center;
+font-size: 1.5em;
+font-weight: 600;
+}
+
+.bubble-small
+{
+text-align: left;
+font-size: 1em;
+font-weight: normal;
+width: 100%;
+}
+
+.bubble-submit
+{
+text-align: center;
+font-size: 1.5em;
+font-weight: normal;
+border-radius: 35%;
+width: 25%;
+}
+
+.bubble-question
+{
+background-color: rgb(0, 0, 0);
+border-radius: 15px;
+padding: 0.5em;
+width: 25%; /* Adjust width as needed */
+text-align: center;
+margin: 0.25em;
+border: 2px solid #ccc;
+transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.answer-radio 
+{
+display: none; /* Hide the actual radio input */
+}
+
+.answer-radio:checked + .bubble-question 
+{
+background-color: #4caf50; /* Change to your desired selected color */
+border-color: #4caf50;
+color: white;
+}
+
+.bubble-question.selected 
+{
+background-color: #4caf50; /* Change to your desired selected color */
+color: white;
+border: none;
+}
+
+input.larger
+{
+transform: scale(2);
+margin: 2em;
+padding: 0.5em;
+}
+
+.image-container 
+{
+display: flex;
+flex-direction: column;
+gap: 1em;
+width: 100%;
+height: 80%;
+justify-content: center; /* Centers images horizontally */
+align-items: center; /* Centers images vertically */
+}
+
+.center-images
+{
+height: 100%;
+display: flex;
+flex-direction: row;
+gap: 20px;
+justify-content: center;
+align-items: center;
+padding: 10%;
+}
+
+.image 
+{
+width: 100%;
+border-radius: 10px;
+overflow: hidden;
+aspect-ratio: 4 / 3;
+box-shadow: 0px 5px 10px 0px rgb(97, 0, 0);
+}
+
+.image img
+{
+object-fit: cover;
+height: 100%;
+width: 100%;
+}
+
+.images-div
+{
+width: 85%;
+}
+
+@media (max-width: 768px) 
+{
+
+    .content 
+    {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .gap-header
+    {
+        margin-top: 5em; /* Adjust this value to leave space for the fixed header */
+    }
+
+    .bubble-small 
+    {
+        margin-top: 1em; /* Add space between bubbles */
+    }
+
+    .images-div {
+        width: 100%; /* Expand the width of image div */
+    }
+
+    .center-images 
+    {
+        flex-direction: row; /* Stack images vertically */
+    }
+
+    .image-container 
+    {
+        width: 100%; /* Adjust width of image containers */
+    }
+
+}

@@ -5,7 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TTrivia Quiz</title>
-    <link rel="stylesheet" href="./css/mystyle.css"/>
+
+    <?php
+
+        require_once './tools/tools.php';
+
+        // Please replace with chosen topic
+        $topic = "e-guitar";
+
+        if($topic = "e-guitar")
+            {
+                echo '<link rel="stylesheet" href="./css/evil.css"/>';
+            } 
+        
+        else
+            {
+                echo '<link rel="stylesheet" href="./css/mystyle.css"/>';
+            }
+    ?>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
@@ -13,38 +31,166 @@
 
 <body>
 
-    <?php
-        require_once './tools/tools.php';
-        
-        // err_rnd();
-    ?>
-
     <div class="header">
-        <h2>Geography, Biology, Zoology, Languages and more! How well do you know?</h2>
+
+        <?php
+
+            if($topic = 'e-guitar')
+                {
+                    echo '<h1>What do you know about electric guitars?</h1>';
+                }
+
+            else if($topic = 'switzerland')
+                {
+                    echo '<h2>What do you know about Switzerland?</h2>';
+                }
+
+            else if($topic = 'harmonica')
+                {
+                    echo '<h2>What do you know about harmonicas?</h2>';
+                }
+
+            else if($topic = 'maths')
+                {
+                    echo '<h2>What do you know about mathematics?</h2>';
+                }
+
+            else if($topic = 'football')
+                {
+                    echo '<h2>What do you know about football?</h2>';
+                }
+
+            else if($topic = 'anatomy')
+                {
+                    echo '<h2>What do you know about anatomy?</h2>';
+                }
+
+            else if($topic = 'language')
+                {
+                    echo '<h2>What do you know about languages?</h2>';
+                }
+        ?>
+
     </div>
 
-    <div class="content gap-header">
+<!--     <div class="content gap-header">
         <div class="bubble bubble-big">
-            <!-- The actual question Number -->
             <div>Question No.</div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="content">
+    <div class="content gap-header">
 
         <div class="bubble bubble-small">
             <!-- The question itself -->
-            <p>Question.. Lorem Ipsum...</p>
+
+            <?php
+
+                // Verbinde mit mySQL, mit Hilfe eines PHP PDO Object
+                $dbHost = getenv('DB_HOST');
+                $dbName = getenv('DB_NAME');
+                $dbUser = getenv('DB_USER');
+                $dbPassword = getenv('DB_PASSWORD');
+
+                try 
+                    {
+                        $conn = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
+                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                        // $topic = "e-guitar";
+
+                        $query = 'SELECT * FROM questions WHERE topic = :topic';
+                        $stmt = $conn -> prepare($query);
+                        $stmt->bindParam(':topic', $topic, PDO::PARAM_STR);  // Bind the topic parameter
+
+                        $stmt -> execute();
+
+                        $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+                        if ($rows) 
+                            {
+                                $randomIndex = array_rand($rows);
+                                $randomStory = $rows[$randomIndex];
+                        
+                                // DEV ONLY
+                                // prettyPrint($randomStory);
+                        
+                                echo $randomStory['question_text'];
+                            } 
+                        
+                        else 
+                            {
+                                echo "No question found for the given topic.";
+                                err_rnd();
+                            }
+                    }
+
+                catch (PDOException $e) 
+                    {
+                        // Handle any exceptions that occur during the connection attempt
+                        echo "Connection failed: " . $e->getMessage();
+
+                        err_rnd();
+                    }
+
+            ?>
+
         </div>
 
         <div class="images-div">
 
             <div class="center-images">
     
-                <!-- here comes and image which corresponds to the question theme -->
+                <!-- here comes and image which corresponds to the question topic -->
                 <div class="image-container">
                     <div class="image">
-                        <img src="/images/geography-1.jpg" alt="Image 1">
+                        <!-- <img src="/images/geography-1.jpg" alt="Image 1"> -->
+
+                        <?php
+                            if($topic = "e-guitar")
+                                {
+                                    $randomNumber = rand(0, 5);
+
+                                    if ($randomNumber == 0) 
+                                        {
+                                            $picture = "mick_1.jpg";
+                                        } 
+                                    
+                                    else if ($randomNumber == 1)
+                                        {
+                                            $picture = "mick_2.jpg";
+                                        }
+
+                                    else if ($randomNumber == 2)
+                                        {
+                                            $picture = "mick_3.jpg";
+                                        }
+
+                                    else if ($randomNumber == 3)
+                                        {
+                                            $picture = "mick_4.jpg";
+                                        }
+
+                                    else if ($randomNumber == 4)
+                                        {
+                                            $picture = "mick_5.jpg";
+                                        }
+
+                                    else if ($randomNumber == 5)
+                                        {
+                                            $picture = "mick_6.jpg";
+                                        }
+
+                                    else
+                                        {
+                                            err_rnd();
+                                        }
+
+                                    echo '<img src="/images/' . $picture . '" alt="Image 1">';
+
+                                }
+                        ?>
+
                     </div>
                 </div>
 
