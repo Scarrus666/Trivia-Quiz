@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Aug 22, 2023 at 07:40 AM
+-- Generation Time: Aug 22, 2023 at 07:38 AM
 -- Server version: 8.0.34
 -- PHP Version: 8.2.8
 
@@ -56,8 +56,7 @@ INSERT INTO `questions` (`id`, `topic`, `question_text`, `answer_1`, `answer_2`,
 (11, 'e-guitar', 'Who first introduced the famous single-cut shape of the electric guitar?', 'Jack Sparrow', 'Gibson', 'Fender', 'Jackson Guitars', 2),
 (12, 'e-guitar', 'Who is Mick Thomson?', 'A very well known boxer', 'He runs a gas station', 'He invented the 7 string guitar', 'He is one of the guitarists from the band SlipKnot', 4),
 (13, 'e-guitar', 'Which of the following is an electric guitar amp?', 'Marlboro Lights', 'B.C. Rich Warlock', 'The Fender Acoustasonic', 'The iconic 5150 which is the signature amp of Eddie Van Halen', 4),
-(14, 'e-guitar', 'Who is the lead guitarist of the band Metallica?', 'James Root', 'Kirk Hammet', 'Kurt Cobain', 'Christoph Blocher', 2),
-(15, 'e-guitar', 'Which metal guitarist is famous for wearing a distinctive mask and being a member of the band Slipknot?', 'James Root', 'Jimmy Page', 'Kirk Hammet', 'Carlos Santana', 1);
+(14, 'e-guitar', 'Who is the lead guitarist of the band Metallica?', 'James Root', 'Kirk Hammet', 'Kurt Cobain', 'Christoph Blocher', 2);
 
 --
 -- Indexes for dumped tables
@@ -77,7 +76,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
