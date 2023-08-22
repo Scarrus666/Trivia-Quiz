@@ -1,15 +1,16 @@
-CREATE TABLE `questions` (
-  `id` int NOT NULL,
-  `topic` enum('harmonica','football','switzerland','e-guitar','maths','language') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `question_text` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `answer_1` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `answer_2` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `answer_3` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `answer_4` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `question_id` int NOT NULL
+CREATE TABLE `questions` 
+(
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `topic` ENUM('harmonica','football','switzerland','e-guitar','maths','language','anatomy') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `question_text` TEXT COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer_1` VARCHAR(127) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer_2` VARCHAR(127) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer_3` VARCHAR(127) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer_4` VARCHAR(127) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer_id` INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `questions` (`id`, `topic`, `question_text`, `answer_1`, `answer_2`, `answer_3`, `answer_4`, `question_id`) VALUES
+INSERT INTO `questions` (`id`, `topic`, `question_text`, `answer_1`, `answer_2`, `answer_3`, `answer_4`, `answer_id`) VALUES
 (1, 'e-guitar', 'How many strings does an electric guitar usually have?', '6', '3', '5', '7', 1),
 (2, 'e-guitar', 'The following is an electric guitar producer.', 'Ford', 'Fjord', 'Fender', 'Bender', 3),
 (3, 'e-guitar', 'You can play an electric guitar outdoors with:', 'A portable outlet', 'Your feet', 'a portable amp', 'you cannot', 3),
@@ -66,4 +67,35 @@ INSERT INTO `questions` (`id`, `topic`, `question_text`, `answer_1`, `answer_2`,
 (54, 'maths', 'An apple costs 40 cents. How much do 4 apples cost?', '1,60 Chf', ' 1,20 Chf', '0,40 Chf', ' 2,00 Chf', 1),
 (55, 'maths', 'How much is 50 percent of 60?', ' 60', ' 30', '90', ' 10', 2),
 (56, 'maths', 'How many faces does a cube have?', ' 5', '4', '6', '7', 3),
-(57, 'maths', 'What is the sum of the interior angles of a triangle?', '180 degrees', '240 degrees', '360 degrees', '120 degrees', 1);
+(57, 'maths', 'What is the sum of the interior angles of a triangle?', '180 degrees', '240 degrees', '360 degrees', '120 degrees', 1),
+(58, 'football', 'Which footballer has scored over 1000 goals?', 'Marco van Basten', 'Alex Frei', 'Romario', 'Jürgen Klinsmann', 3),
+(59, 'football', 'Who played for Sion as a junior?', 'Ronaldinho', 'Johan Vonlanthen', 'Ottmar Hitzfeld', 'Alain Sutter', 1),
+(60, 'football', 'Which Spanish team uses red/blue as their home kit?', 'FC Basel', 'FC Barcelona', 'Deportivo La Coruna', 'FC Valencia', 2),
+(61, 'football', 'When did FC Zurich reach the semi-finals of the Champions League (national champions)?', '2008 und 2019 ', '1964 und 1977', '1994 und 2010 ', '2002 und 2008', 2),
+(62, 'football', 'Who won the Champions League 22/23?', 'FC Barcelona', 'Inter Mailand', 'Manchester City', 'FC Sevilla', 3),
+(63, 'football', 'Which Swiss founded FC Barcelona?', 'Hans Gamper', 'Steve Lee', 'Edwin Nägeli', 'Jakob Kuhn', 1),
+(64, 'football', "Who was an FC Zurich player and later Switzerland's national coach?", 'Fritz Künzli', 'Jakob Kuhn', 'Lucien Favre', 'Bernard Challandes', 2),
+(65, 'football', 'When did Stéphane Chapuisat win the Champions League?', '2000', '1994', '1999', '1997', 4),
+(66, 'football', 'How many World Cups did Pelé win with Brazil?', '1', '2', '3', '4', 3),
+(67, 'football', 'When did Alexis Sanchez play for FC Barcelona?', '2011-2014', '1989-1999', '1958-1970', '2003-2007', 1),
+(68, 'football', 'How many times did Ronaldo become world footballer?', '2', '5', '1', '3', 4),
+(69, 'football', 'Who scored 1329 goals during his career?', 'Romario', 'Arthur Friedenreich', 'Pelé', 'Lionel Messi', 2),
+(70, 'football', 'Which club did Georghe Hagi play for?', 'AS Roma', 'Flamengo ', 'FC Zürich', 'FC Barcelona', 4),
+(71, 'football', 'Which Chilean player once played in Switzerland, later for Real Madrid and Inter Milan?', 'Marcelo Salas', 'Ivan Zamorano', 'Arturo Vidal', 'Erick Pulgar', 2),
+(72, 'football', 'Which Turkish player played for AS Roma?', 'Ünder', 'Sükür', 'Turan', 'Emre Belözoğlu', 1),
+(73, 'football', 'Who is the most expensive Ethiopian player in market value?', 'Amanuel Gebremichael', 'Shemeles Bekele', 'Gatoch Panom', 'Beneyam Belay', 3),
+(74, 'anatomy', 'Which organ is responsible for filtering blood and producing urine?', 'Liver\r\n\r\n\r\n', 'Heart', 'Kidney', 'Lungs', 3),
+(75, 'anatomy', 'What bones form the skeleton of the human arm?', 'Ulna and Radius\r\n\r\n\r\n', 'Tibia and Fibula', 'Femur and Patella', 'Humerus and Scapula', 1),
+(76, 'anatomy', 'What type of tissue connects bones to each other?', 'a) Muscle tissue\r\n\r\n\r\n', 'b) Nervous tissue', 'c) Connective tissue', 'd) Epithelial tissue', 3),
+(77, 'anatomy', 'What is the term for the largest respiratory organ in the human body?\n\n\n\n\n', 'Liver', 'Stomach', 'Lung', 'Kidney', 3),
+(78, 'anatomy', 'Which organ is responsible for producing insulin?', 'Pancreas', 'Thyroid gland', 'Adrenal gland', 'Gallbladder', 1),
+(79, 'anatomy', "What is the body's own fluid that lubricates joints called?", 'Saliva', 'Synovial fluid', 'Gastric juice', 'Bile', 2),
+(80, 'anatomy', 'Which bones protect the brain?', 'Rib bones', 'Pelvic bones', 'Cranial bones', 'Spinal bones', 3),
+(81, 'anatomy', 'What is the name of the longest bone in the human body?', 'Ulna', 'Radius', 'Femur', 'Tibia', 3),
+(82, 'anatomy', ' Which heart valve separates the left atrium from the left ventricle?', 'Tricuspid valve', 'Aortic valve', 'Pulmonary valve', 'Mitral valve (bicuspid valve)', 4),
+(83, 'anatomy', 'Which organ is responsible for producing red blood cells?', 'Spleen', 'Liver', 'Bone marrow', 'Pancreas', 3),
+(84, 'anatomy', 'Which organ is part of the digestive system and produces bile?', 'Liver', 'Stomach', 'Small intestine', 'Kidney', 1),
+(85, 'anatomy', 'What type of muscle tissue is under voluntary control?', 'Smooth muscle', 'Cardiac muscle', 'Connective muscle', 'Skeletal muscle', 4),
+(86, 'anatomy', 'What are the hard outer layers of bone called?', 'Marrow', 'Cartilage', 'Spongy bone', 'Compact bone', 4),
+(87, 'anatomy', 'Which organ regulates metabolism in the body and produces hormones?', 'Liver', 'Thyroid gland', 'Pancreas', 'Adrenal gland', 2),
+(88, 'anatomy', 'Which blood cells are primarily responsible for immune defense?', 'Red blood cells', 'Platelets', 'White blood cells', 'Plasma cells', 3);

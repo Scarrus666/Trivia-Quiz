@@ -89,7 +89,7 @@ function err_rnd()
             
         else 
             {
-                err_trl(); // Call err_trl() if the random number is 1
+                err_trl(); // Call err_trl() if the random number is anything other than 0
             }
     }
 
