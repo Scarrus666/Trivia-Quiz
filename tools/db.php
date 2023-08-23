@@ -1,29 +1,28 @@
 <?php
+    // DIES HIER IST DER CODE VON CHRIS
 
-require "./includes/tools.php";
+    require_once "/tools/tools.php";
 
-// Verbinde mit mySQL, mit Hilfe eines PHP PDO Object
-$dbHost = getenv('DB_HOST');
-$dbName = getenv('DB_NAME');
-$dbUser = getenv('DB_USER');
-$dbPassword = getenv('DB_PASSWORD');
+    // Verbinde mit mySQL, mit Hilfe eines PHP PDO Object
+    $dbHost = getenv('DB_HOST');
+    $dbName = getenv('DB_NAME');
+    $dbUser = getenv('DB_USER');
+    $dbPassword = getenv('DB_PASSWORD');
 
-try 
-    {
-        // Create a new PDO database connection
-        $dbConnection = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
-        
-        // Set the error mode for exception handling
-        $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // You are now connected to the database
-    
-    } 
+    $dbConnection = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
+    $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-catch (PDOException $e) 
-    {
-        // Handle any exceptions that occur during the connection attempt
-        echo "Connection failed: " . $e->getMessage();
-    }
+    function fetchQuestionById()
+        {
+            // echo "<p>fetchQuestionById()</p>";
+
+            $sqlStatement = $dbConnection->query("SELECT * FROM questions WHERE id = $id");
+            $questionData = $sqlStatement->fetch(PDO::FETCH_ASSOC);
+
+            return $questionData;
+        }
+
+    $questionId = 1;
 
 ?>

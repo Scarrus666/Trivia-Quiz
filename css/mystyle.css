@@ -75,7 +75,7 @@ gap: 0.125em;
     font-family: Arial, sans-serif;
     font-size: 0.8em;
     font-weight: 600;
-    text-align: ;
+    text-align: center;
     width: 100%;
     max-width: 300px; /* Set a maximum width for the dropdown */
     cursor: pointer;
@@ -125,7 +125,32 @@ gap: 0.125em;
     cursor: pointer;
 }
 
+.question-label {
+    text-align: right;
+    padding-right: 0.5em;
+    display: inline-block;
+}
 
+.question-input {
+    display: inline-block;
+}
+
+.question-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question-container label {
+    margin-right: 0.5em;
+}
+
+.question-container input {
+    width: 4em; /* Adjust the width as needed */
+    text-align: right;
+    border-color: white;
+    border-width: 0;
+}
 
 .bubble 
 {

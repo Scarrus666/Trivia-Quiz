@@ -1,7 +1,9 @@
 <?php
-        require_once './tools/tools.php';
+    session_start();
 
-        session_start();
+    require_once './tools/tools.php';
+    // require_once '/tools/db.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -68,13 +70,13 @@
 
     </div>
 
-    <form action="./question.php" method="post">
+    <form action="./pitstop.php" method="post">
 
         <div class="content">
             <div class="bubble bubble-secondary bubble-dropdown">
                 <!-- Quiz selection -->
                 <label for="quizDropdown">Choose the Theme<br><hr></label>
-                <select id="quizDropdown">
+                <select id="quizDropdown" name="quizDropdown">
                     <option value="" disabled selected hidden>Please Select</option>
                     <option value="e-guitar">Electric Guitars</option>
                     <option value="switzerland">Switzerland</option>
@@ -91,13 +93,18 @@
         <div class="content">
     <div class="bubble bubble-secondary">
         <!-- Number of Questions -->
-        <label for="numQuestions">How many Questions</label>
-        <input type="number" id="numQuestions" name="numQuestions" min="1" value="10">
+        <div class="question-container">
+            <label for="numQuestions">Number of Questions</label>
+            <input type="number" id="numQuestions" name="numQuestions" min="1" value="10">
+        </div>
     </div>
 </div>
 
 
+
+
         <?php
+
 
             // Verbinde mit mySQL, mit Hilfe eines PHP PDO Object
             $dbHost = getenv('DB_HOST');
@@ -110,7 +117,7 @@
                     $conn = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                    // $topic = "e-guitar";
+                    $topic = "e-guitar";
 
                     $query = 'SELECT * FROM questions WHERE topic = :topic';
                     $stmt = $conn -> prepare($query);
@@ -123,12 +130,12 @@
                     if ($rows) 
                         {
                             $randomIndex = array_rand($rows);
-                            $randomStory = $rows[$randomIndex];
+                            $randomQuestion = $rows[$randomIndex];
                     
                             // DEV ONLY
                             // prettyPrint($randomStory);
                     
-                            echo $randomStory['question_text'];
+                            echo $randomQuestion['question_text'];
                         } 
                     
                     else 

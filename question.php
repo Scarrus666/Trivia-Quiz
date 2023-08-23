@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,6 +91,25 @@
 
     <div class="content gap-header">
 
+        <div class="bubble bubble-small box">
+
+            <?php
+
+                $selectedTheme = $_POST['quizDropdown'];
+                $numQuestions = $_POST['numQuestions'];
+
+                prettyPrint($selectedTheme);
+
+                echo "<br>";
+
+                prettyPrint($numQuestions);
+
+                echo "<br>";
+
+                prettyPrint($_POST);
+            ?>
+
+        </div>
         <div class="bubble bubble-small box">
             <!-- The question itself -->
 
