@@ -20,7 +20,8 @@
     ?>
 
     <div class="header">
-        <h2>Geography, Biology, Zoology, Languages and more! How well do you know?</h2>
+        <h2>How well do you know?</h2>
+        <h6>Come take a quiz with us and test your knowledge</h6>
     </div>
 
     <div class="content gap-header">
