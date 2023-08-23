@@ -22,8 +22,33 @@ body
     background-color: rgb(44, 0, 0);
 }
 
+.navigation 
+{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.nav-button 
+{
+background-color: transparent;
+border: none;
+font-size: 1.5em;
+color: white;
+cursor: pointer;
+padding: 0.25em 0.5em;
+}
+
+.nav-button:hover 
+{
+background-color: rgba(255, 255, 255, 0.1);
+}
+
 .header 
 {
+text-align: center; /* Center-align the content inside the bubble */
+justify-content: center;
+align-items: center;
 background-color: #000000;
 font-family: gothicShadow;
 color: white;
@@ -55,7 +80,7 @@ gap: 0.125em;
 font-family: gothic;
 color: white;
 background-color: rgb(0, 0, 0);
-border-radius: 5px;
+border-radius: 7px;
 padding: 0.5em;
 width: 30rem, 100%;
 box-shadow: 0px 7.5px 15px 0px rgb(97, 0, 0);
@@ -115,14 +140,14 @@ display: none; /* Hide the actual radio input */
 
 .answer-radio:checked + .bubble-question 
 {
-background-color: #4caf50; /* Change to your desired selected color */
-border-color: #4caf50;
+background-color: #c72424; /* Change to your desired selected color */
+border-color: #c72424;
 color: white;
 }
 
 .bubble-question.selected 
 {
-background-color: #4caf50; /* Change to your desired selected color */
+background-color: #c72424; /* Change to your desired selected color */
 color: white;
 border: none;
 }

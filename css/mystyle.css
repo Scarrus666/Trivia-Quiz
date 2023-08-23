@@ -12,19 +12,43 @@ body
     font-family: Arial, sans-serif;
 }
 
+.navigation 
+{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.nav-button 
+{
+background-color: transparent;
+border: none;
+font-size: 1.5em;
+color: white;
+cursor: pointer;
+padding: 0.25em 0.5em;
+}
+
+.nav-button:hover 
+{
+background-color: rgba(255, 255, 255, 0.1);
+}
+
 .header 
 {
 background-color: #3F4ED0;
 font-family: impact;
 color: white;
-text-align: center;
 padding: 10px;
 position: fixed;
+/*
 border-bottom-left-radius: 0.5em;
 border-bottom-right-radius: 0.5em;
+*/
 box-shadow: 0 0.125rem 0.175rem rgb(255, 255, 255);
 top: 0;
 width: 100%;
+text-align: center;
 }
 
 .gap-header
@@ -40,6 +64,68 @@ flex-direction: row;
 align-items: center; /* Aligns items vertically */
 gap: 0.125em;
 }
+
+/* Styling for the dropdown menu */
+#quizDropdown {
+    appearance: none;
+    background-color: white;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    padding: 0.15em 0.35em; /* Adjust padding to make it smaller */
+    font-family: Arial, sans-serif;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-align: ;
+    width: 100%;
+    max-width: 300px; /* Set a maximum width for the dropdown */
+    cursor: pointer;
+}
+
+#quizDropdown:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Styling for the dropdown arrow icon */
+#quizDropdown::-ms-expand {
+    display: none; /* Remove the default arrow on IE */
+}
+
+#quizDropdown::before {
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #aaa;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.dropdown-bubble {
+    background-color: white;
+    border-radius: 15px;
+    padding: 0.5em;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    display: inline-block;
+}
+
+.dropdown-bubble select {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 0.25em 0.5em;
+    font-size: 1em;
+    color: #333; /* Adjust the color as needed */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+
 
 .bubble 
 {
@@ -78,11 +164,22 @@ width: 100%;
 
 .bubble-submit
 {
+    text-align: center; /* Center-align the content inside the bubble */
+    font-size: 1.5em;
+    font-weight: normal;
+    border-radius: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble-submit input[type="submit"] 
+{
 text-align: center;
-font-size: 1.5em;
-font-weight: normal;
-border-radius: 50%;
+display: block;
 width: 100%;
+padding: 0.5em; /* Adding some padding for spacing */
 }
 
 .bubble-question

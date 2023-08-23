@@ -1,23 +1,25 @@
+<?php
+        require_once './tools/tools.php';
+
+        session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take a Quiz!</title>
-    <link rel="stylesheet" href="./css/mystyle.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/mystyle.css"/>
     <script src="js/main.js"></script>
+    <title>Take a Quiz!</title>
+
 </head>
 
 <body>
-
-    <?php
-        require_once './tools/tools.php';
-        
-        // err_rnd();
-    ?>
 
     <div class="header">
         <h2>How well do you know?</h2>
@@ -66,28 +68,92 @@
 
     </div>
 
-    <div class="content">
-        <div class="bubble bubble-secondary">
-            <!-- Quiz selection -->
-            <div>Choose the Quiz</div>
-        </div>
-    </div>
+    <form action="./question.php" method="post">
 
-    <div class="content">
-        <div class="bubble bubble-secondary">
-            <!-- Number of Questions -->
-            <div>Questions:</div>
+        <div class="content">
+            <div class="bubble bubble-secondary bubble-dropdown">
+                <!-- Quiz selection -->
+                <label for="quizDropdown">Choose the Theme<br><hr></label>
+                <select id="quizDropdown">
+                    <option value="" disabled selected hidden>Please Select</option>
+                    <option value="e-guitar">Electric Guitars</option>
+                    <option value="switzerland">Switzerland</option>
+                    <option value="harmonica">Harmonicas</option>
+                    <option value="maths">Mathematics</option>
+                    <option value="football">Football</option>
+                    <option value="anatomy">Anatomy</option>
+                    <option value="swiss-animals">Animals in Switzerland</option>
+                    <option value="language">Languages</option>
+                </select>
+            </div>
         </div>
-    </div>
 
-    <div class="content">
-        <div class="bubble bubble-submit">
-            <!-- submit button -->
-            <div>Take the Quiz</div>
-        </div>
+        <div class="content">
+    <div class="bubble bubble-secondary">
+        <!-- Number of Questions -->
+        <label for="numQuestions">How many Questions</label>
+        <input type="number" id="numQuestions" name="numQuestions" min="1" value="10">
     </div>
+</div>
+
+
+        <?php
+
+            // Verbinde mit mySQL, mit Hilfe eines PHP PDO Object
+            $dbHost = getenv('DB_HOST');
+            $dbName = getenv('DB_NAME');
+            $dbUser = getenv('DB_USER');
+            $dbPassword = getenv('DB_PASSWORD');
+
+            try 
+                {
+                    $conn = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    // $topic = "e-guitar";
+
+                    $query = 'SELECT * FROM questions WHERE topic = :topic';
+                    $stmt = $conn -> prepare($query);
+                    $stmt->bindParam(':topic', $topic, PDO::PARAM_STR);  // Bind the topic parameter
+
+                    $stmt -> execute();
+
+                    $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+                    if ($rows) 
+                        {
+                            $randomIndex = array_rand($rows);
+                            $randomStory = $rows[$randomIndex];
+                    
+                            // DEV ONLY
+                            // prettyPrint($randomStory);
+                    
+                            echo $randomStory['question_text'];
+                        } 
+                    
+                    else 
+                        {
+                            echo "No question found for the given topic.";
+                            err_rnd();
+                        }
+                }
+
+            catch (PDOException $e) 
+                {
+                    // Handle any exceptions that occur during the connection attempt
+                    echo "Connection failed: " . $e->getMessage();
+
+                    err_rnd();
+                }
+
+        ?>
+        <div class="content">
+            <input type="submit" class="bubble bubble-submit" value="Take the Quiz">
+        </div>
+    </form>
 
 </div>
+
 
 </body>
 </html>
