@@ -91,69 +91,15 @@
         </div>
 
         <div class="content">
-    <div class="bubble bubble-secondary">
+            <div class="bubble bubble-secondary">
         <!-- Number of Questions -->
-        <div class="question-container">
-            <label for="numQuestions">Number of Questions</label>
-            <input type="number" id="numQuestions" name="numQuestions" min="1" value="10">
+                <div class="question-container">
+                    <label for="numQuestions">Number of Questions</label>
+                    <input type="number" id="numQuestions" name="numQuestions" min="1" value="10">
+                </div>
+             </div>
         </div>
-    </div>
-</div>
 
-
-
-
-        <?php
-
-
-            // Verbinde mit mySQL, mit Hilfe eines PHP PDO Object
-            $dbHost = getenv('DB_HOST');
-            $dbName = getenv('DB_NAME');
-            $dbUser = getenv('DB_USER');
-            $dbPassword = getenv('DB_PASSWORD');
-
-            try 
-                {
-                    $conn = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
-                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                    $topic = "e-guitar";
-
-                    $query = 'SELECT * FROM questions WHERE topic = :topic';
-                    $stmt = $conn -> prepare($query);
-                    $stmt->bindParam(':topic', $topic, PDO::PARAM_STR);  // Bind the topic parameter
-
-                    $stmt -> execute();
-
-                    $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
-
-                    if ($rows) 
-                        {
-                            $randomIndex = array_rand($rows);
-                            $randomQuestion = $rows[$randomIndex];
-                    
-                            // DEV ONLY
-                            // prettyPrint($randomStory);
-                    
-                            echo $randomQuestion['question_text'];
-                        } 
-                    
-                    else 
-                        {
-                            echo "No question found for the given topic.";
-                            err_rnd();
-                        }
-                }
-
-            catch (PDOException $e) 
-                {
-                    // Handle any exceptions that occur during the connection attempt
-                    echo "Connection failed: " . $e->getMessage();
-
-                    err_rnd();
-                }
-
-        ?>
         <div class="content">
             <input type="submit" class="bubble bubble-submit" value="Take the Quiz">
         </div>

@@ -1,5 +1,24 @@
 <?php
     session_start();
+
+    require_once './tools/tools.php';
+
+    $filteredRows = $_SESSION['filteredRows'];
+    $topic = $_SESSION['topic'];
+
+    if(isset($_SESSION['numQuestions']))
+        {
+            $questionNo = $_SESSION['numQuestions'];
+            $questionNo--;
+        }
+
+    else
+        {
+            echo "cannot find Question Numbers";
+
+            err_rnd();
+            exit();
+        }
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +32,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <?php
-
-        require_once './tools/tools.php';
-
-        // Please replace with chosen topic
-        $topic = "switzerland";
 
         if($topic == "e-guitar")
             {
@@ -90,77 +104,36 @@
     </div> -->
 
     <div class="content gap-header">
-
-        <div class="bubble bubble-small box">
+        <div class="bubble bubble-small box" style="font-size: 0.8em">
 
             <?php
 
-                $selectedTheme = $_POST['quizDropdown'];
-                $numQuestions = $_POST['numQuestions'];
+                // DEV ONLY
+                prettyPrint($filteredRows);
+                prettyPrint($topic);
 
-                prettyPrint($selectedTheme);
+                $previousAnswer = $_SESSION['previousChoice'];
+                prettyPrint($previousAnswer);
 
-                echo "<br>";
-
-                prettyPrint($numQuestions);
-
-                echo "<br>";
-
-                prettyPrint($_POST);
             ?>
 
         </div>
+    </div>
+
+    <div class="content">
         <div class="bubble bubble-small box">
             <!-- The question itself -->
 
             <?php
 
-                // Verbinde mit mySQL, mit Hilfe eines PHP PDO Object
-                $dbHost = getenv('DB_HOST');
-                $dbName = getenv('DB_NAME');
-                $dbUser = getenv('DB_USER');
-                $dbPassword = getenv('DB_PASSWORD');
+                // DEV ONLY
+                // prettyPrint($questionNo);
 
-                try 
-                    {
-                        $conn = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
-                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $actualQuestion = $filteredRows[$questionNo];
 
-                        // $topic = "e-guitar";
+                echo $actualQuestion['question_text'];
 
-                        $query = 'SELECT * FROM questions WHERE topic = :topic';
-                        $stmt = $conn -> prepare($query);
-                        $stmt->bindParam(':topic', $topic, PDO::PARAM_STR);  // Bind the topic parameter
-
-                        $stmt -> execute();
-
-                        $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
-
-                        if ($rows) 
-                            {
-                                $randomIndex = array_rand($rows);
-                                $randomStory = $rows[$randomIndex];
-                        
-                                // DEV ONLY
-                                // prettyPrint($randomStory);
-                        
-                                echo $randomStory['question_text'];
-                            } 
-                        
-                        else 
-                            {
-                                echo "No question found for the given topic.";
-                                err_rnd();
-                            }
-                    }
-
-                catch (PDOException $e) 
-                    {
-                        // Handle any exceptions that occur during the connection attempt
-                        echo "Connection failed: " . $e->getMessage();
-
-                        err_rnd();
-                    }
+                $_SESSION['questionsNumber'] = $questionNo;
 
             ?>
 
@@ -229,70 +202,55 @@
 
     </div>
 
+    <form action="./process_question.php" method="post">
         <!-- Choose the Answer -->
         <div class="content answers" name="answers">
 
             <div class="bubble bubble-question">
-                    <div class="form-check">
-                        <input class="answer-radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Answer 1
-                        </label>
-                    </div>
+                <div class="form-check">
+                    <input type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        <span class="button-content">Answer 1</span>
+                    </label>
+                </div>
             </div>
 
             <div class="bubble bubble-question">
                 <div class="form-check">
-                    <input class="answer-radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <input type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="2">
                     <label class="form-check-label" for="flexRadioDefault2">
-                        Answer 2
+                        <span class="button-content">Answer 2</span>
                     </label>
                  </div>
             </div>
 
             <div class="bubble bubble-question">
                 <div class="form-check">
-                    <input class="answer-radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Answer 3
+                    <input type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="3">
+                    <label class="form-check-label" for="flexRadioDefault3">
+                        <span class="button-content">Answer 3</span>
                     </label>
                  </div>
             </div>
 
             <div class="bubble bubble-question">
                 <div class="form-check">
-                    <input class="answer-radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Answer 4
+                    <input type="radio" name="flexRadioDefault" id="flexRadioDefault4" value="4">
+                    <label class="form-check-label" for="flexRadioDefault4">
+                        <span class="button-content">Answer 4</span>
                     </label>
                  </div>
             </div>
         </div>
 
-    <div class="content">
-        <div class="bubble bubble-submit">
-            <!-- Next Question/Continue Button -->
-            <div>Continue</div>
+        <div class="content">
+            <input type="submit" class="bubble bubble-submit" value="Continue">
+
+            </div>
         </div>
-    </div>
+    </form>
 
 </div>
-
-<script>
-    const answerBubbles = document.querySelectorAll('.bubble-question');
-
-    answerBubbles.forEach((bubble) => {
-        bubble.addEventListener('click', () => {
-            // Remove the 'selected' class from all bubbles
-            answerBubbles.forEach((bubble) => {
-                bubble.classList.remove('selected');
-            });
-
-            // Add the 'selected' class to the clicked bubble
-            bubble.classList.add('selected');
-        });
-    });
-</script>
 
 </body>
 </html>
