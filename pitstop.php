@@ -63,7 +63,16 @@ try
 
                 // Save the $filteredRows Array to Session(store in sessio_storage)
                 $_SESSION['filteredRows'] = $filteredRows;
-                $_SESSION['numQuestions'] = $numQuestions;
+
+                $questionsNum = 0;
+
+                // for each entry($row) in $filteredRows add 1 to $questionsNum
+                foreach ($filteredRows as $key => $row)
+                {
+                    $questionsNum++;
+                }
+
+                $_SESSION['numQuestions'] = $questionsNum;
                 $_SESSION['topic'] = $topic;
 
                 // go to the next page

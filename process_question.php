@@ -17,6 +17,16 @@
     // DEV ONLY
     //prettyPrint($questionNo);
 
+    if(isset($_SESSION['score']))
+        {
+            $score = $_SESSION['score'];
+        }
+
+    else
+        {
+            $score = 0;
+        }
+
     header("Location: ./question.php");
     exit();
 

@@ -6,6 +6,7 @@
     $filteredRows = $_SESSION['filteredRows'];
     $topic = $_SESSION['topic'];
 
+    // Display the next question
     if(isset($_SESSION['numQuestions']))
         {
             $questionNo = $_SESSION['numQuestions'];
@@ -18,6 +19,18 @@
 
             err_rnd();
             exit();
+        }
+
+    if(isset($_SESSION['score']))
+        {
+            $score = $_SESSION['score'];
+            $_SESSION['scorePartial'];
+        }
+
+    else
+        {
+            $initialScore = 0;
+            $_SESSION['initialScore'] = $initialScore;
         }
 ?>
 
