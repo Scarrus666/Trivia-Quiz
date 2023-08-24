@@ -72,6 +72,7 @@ try
                     $questionsNum++;
                 }
 
+                $_SESSION['score'] = 0;
                 $_SESSION['numQuestions'] = $questionsNum;
                 $_SESSION['topic'] = $topic;
 

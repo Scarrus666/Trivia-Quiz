@@ -10,8 +10,18 @@
 
     if(isset($_POST['flexRadioDefault']))
         {
+            // Get the present score and user answer
+            $score = $_SESSION['score'];
             $answer = $_POST['flexRadioDefault'];
-            $_SESSION['previousChoice'] = $answer;
+
+            // add points if user answered correctly
+            $correctAnswer = $_SESSION['correctAnswer'];
+            
+            if($answer = $correctAnswer)
+                {
+                    $score++;
+                    $_SESSION['score'] = $score;
+                }
         }
 
     // DEV ONLY
@@ -24,7 +34,8 @@
 
     else
         {
-            $score = 0;
+            echo "Score not found!";
+            err_rnd();
         }
 
     header("Location: ./question.php");

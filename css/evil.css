@@ -41,7 +41,7 @@ padding: 0.25em 0.5em;
 
 .nav-button:hover 
 {
-background-color: rgba(255, 255, 255, 0.1);
+background-color: rgb(97, 0, 0);
 }
 
 .header 
@@ -129,12 +129,6 @@ width: 25%;
 transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.bubble-submit:hover {
-    background-color: #4caf50; /* Change to your desired hover color */
-    border-color: #4caf50;
-    color: white;
-}
-
 .bubble-question
 {
 background-color: rgb(0, 0, 0);
@@ -159,23 +153,11 @@ border-color: #c72424;
 color: white;
 }
 
-.bubble-question:hover {
-    background-color: #4caf50; /* Change to your desired hover color */
-    border-color: #4caf50;
-    color: white;
-}
-
 .bubble-question.selected 
 {
 background-color: #c72424; /* Change to your desired selected color */
 color: white;
 border: none;
-}
-
-.bubble-question input[type="radio"]:checked + .button-content {
-    background-color: #4caf50; /* Change to your desired selected color */
-    border-color: #4caf50;
-    color: white;
 }
 
 input.larger

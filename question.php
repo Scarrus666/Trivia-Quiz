@@ -21,16 +21,17 @@
             exit();
         }
 
+    // check if a score has already been set for 
     if(isset($_SESSION['score']))
         {
             $score = $_SESSION['score'];
-            $_SESSION['scorePartial'];
+            $_SESSION['score'] = $score;
         }
 
     else
         {
-            $initialScore = 0;
-            $_SESSION['initialScore'] = $initialScore;
+            echo "Score not found!";
+            err_rnd();
         }
 ?>
 
@@ -147,6 +148,7 @@
                 echo $actualQuestion['question_text'];
 
                 $_SESSION['questionsNumber'] = $questionNo;
+                $_SESSION['correctAnswer'] = $actualQuestion['answer_id'];
 
             ?>
 
@@ -201,7 +203,7 @@
                                             err_rnd();
                                         }
 
-                                    echo '<img src="/images/' . $picture . '" alt="Image 1">';
+                                    echo '<img src="/images/' . $picture . '" alt="Mick Thomson himself">';
 
                                 }
                         ?>
@@ -223,7 +225,11 @@
                 <div class="form-check">
                     <input type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1" checked>
                     <label class="form-check-label" for="flexRadioDefault1">
-                        <span class="button-content">Answer 1</span>
+                        <span class="button-content">
+                            <?php
+                                echo $actualQuestion['answer_1'];
+                            ?>
+                        </span>
                     </label>
                 </div>
             </div>
@@ -232,7 +238,11 @@
                 <div class="form-check">
                     <input type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="2">
                     <label class="form-check-label" for="flexRadioDefault2">
-                        <span class="button-content">Answer 2</span>
+                        <span class="button-content">
+                            <?php
+                                echo $actualQuestion['answer_2'];
+                            ?>
+                        </span>
                     </label>
                  </div>
             </div>
@@ -241,7 +251,11 @@
                 <div class="form-check">
                     <input type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="3">
                     <label class="form-check-label" for="flexRadioDefault3">
-                        <span class="button-content">Answer 3</span>
+                        <span class="button-content">
+                            <?php
+                                echo $actualQuestion['answer_3'];
+                            ?>
+                        </span>
                     </label>
                  </div>
             </div>
@@ -250,7 +264,11 @@
                 <div class="form-check">
                     <input type="radio" name="flexRadioDefault" id="flexRadioDefault4" value="4">
                     <label class="form-check-label" for="flexRadioDefault4">
-                        <span class="button-content">Answer 4</span>
+                        <span class="button-content">
+                            <?php
+                                echo $actualQuestion['answer_4'];
+                            ?>
+                        </span>
                     </label>
                  </div>
             </div>
