@@ -109,6 +109,11 @@
                 {
                     echo '<h2>What do you know about languages?</h2>';
                 }
+
+            else if($topic == 'swiss-animals')
+                {
+                    echo '<h2>What do you know about the animals in Switzerland?</h2>';
+                }
         ?>
 
         <button class="nav-button" id="nextButton">&gt;</button>

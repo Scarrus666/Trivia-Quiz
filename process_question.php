@@ -22,9 +22,10 @@
                     $score = $_SESSION['score'];
                     $answer = $_POST['flexRadioDefault'];
 
-                    // add points if user answered correctly
+                    // Get the correct answer
                     $correctAnswer = $_SESSION['correctAnswer'];
                     
+                    // add points if user answered correctly
                     if($answer == $correctAnswer)
                         {
                             $score++;
