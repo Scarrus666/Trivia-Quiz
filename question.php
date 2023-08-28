@@ -11,6 +11,11 @@
         {
             $questionNo = $_SESSION['numQuestions'];
             $questionNo--;
+
+            if($questionNo < 0)
+                {
+                    header("Location: ./report.php");
+                }
         }
 
     else
@@ -126,8 +131,19 @@
                 prettyPrint($filteredRows);
                 prettyPrint($topic);
 
-                $previousAnswer = $_SESSION['previousChoice'];
-                prettyPrint($previousAnswer);
+                if(isset($_SESSION['previousChoice']))
+                {
+                    $previousAnswer = $_SESSION['previousChoice'];
+                    echo 'Your previous choice was: ' . $previousAnswer . '<br>';
+                }
+
+                else echo 'No previous answer<br>';
+
+                if(isset($score)) echo 'Your score is: ' . $score . '<br>';
+                else echo 'No score set<br>';
+
+                if(isset($questionNo)) echo 'Question Number: ' . $questionNo . '<br>';
+                else echo 'No Question Number set<br>';
 
             ?>
 

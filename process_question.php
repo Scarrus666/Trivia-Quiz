@@ -8,40 +8,53 @@
     $questionNo = $_SESSION['questionsNumber'];
     $_SESSION['numQuestions'] = $questionNo;
 
-    if(isset($_POST['flexRadioDefault']))
+    if($questionNo < 0)
         {
-            // Get the present score and user answer
-            $score = $_SESSION['score'];
-            $answer = $_POST['flexRadioDefault'];
-
-            // add points if user answered correctly
-            $correctAnswer = $_SESSION['correctAnswer'];
-            
-            if($answer = $correctAnswer)
-                {
-                    $score++;
-                    $_SESSION['score'] = $score;
-                }
-        }
-
-    // DEV ONLY
-    //prettyPrint($questionNo);
-
-    if(isset($_SESSION['score']))
-        {
-            $score = $_SESSION['score'];
+            header("Location: ./report.php");
+            exit();
         }
 
     else
         {
-            echo "Score not found!";
-            err_rnd();
-        }
+            if(isset($_POST['flexRadioDefault']))
+                {
+                    // Get the present score and user answer
+                    $score = $_SESSION['score'];
+                    $answer = $_POST['flexRadioDefault'];
 
-    header("Location: ./question.php");
-    exit();
+                    // add points if user answered correctly
+                    $correctAnswer = $_SESSION['correctAnswer'];
+                    
+                    if($answer == $correctAnswer)
+                        {
+                            $score++;
+                            $_SESSION['score'] = $score;
+                        }
 
-?>
-<?php
+                    else $_SESSION['score'] = $score;
+
+                    // DEV ONLY - save the previous selected choice in SESSION for DEV reasons
+                    $_SESSION['previousChoice'] = $answer;
+                }
+
+                // DEV ONLY
+                //prettyPrint($questionNo);
+
+                if(isset($_SESSION['score']))
+                    {
+                        $score = $_SESSION['score'];
+                    }
+
+                else
+                    {
+                        echo "Score not found!";
+                        err_rnd();
+                    }
+
+                header("Location: ./question.php");
+                exit();
+            }
+
+    
 
 ?>
