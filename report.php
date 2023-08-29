@@ -6,6 +6,7 @@
 
     $score = $_SESSION['score'];
     $topic = $_SESSION['topic'];
+    $questionsNo = $_SESSION['totalQuestions'];
 
 ?>
 
@@ -97,8 +98,9 @@
 
             <?php
 
-                echo 'Your topic was: ' . $topic . '<br><br>';
-                echo 'And your score was: ' .$score;
+                echo 'Your topic was ' . $topic . '<br><br>';
+                echo 'The total number of questions was ' . $questionsNo . '<br><br>';
+                echo 'And you answered ' . $score . ' questions correctly';
 
             ?>
 
