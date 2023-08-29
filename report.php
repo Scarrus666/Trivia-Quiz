@@ -32,8 +32,6 @@
                 echo '<link rel="stylesheet" href="./css/mystyle.css"/>';
             }
     ?>
-
-    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -98,9 +96,9 @@
 
             <?php
 
-                echo 'Your topic was ' . $topic . '<br><br>';
-                echo 'The total number of questions was ' . $questionsNo . '<br><br>';
-                echo 'And you answered ' . $score . ' questions correctly';
+                echo '<br>Your topic was ' . $topic . '.<br>';
+                echo 'The total number of questions was ' . $questionsNo . '.<br>';
+                echo 'You answered ' . $score . ' questions correctly.<br><br>';
 
             ?>
 

@@ -3,6 +3,9 @@
 
     require_once './tools/tools.php';
 
+    $totalQuestions = $_SESSION['totalQuestions'];
+    $_SESSION['totalQuestions'] = $totalQuestions;
+
     $filteredRows = $_SESSION['filteredRows'];
     $topic = $_SESSION['topic'];
 
@@ -62,9 +65,8 @@
             {
                 echo '<link rel="stylesheet" href="./css/mystyle.css"/>';
             }
+            
     ?>
-
-    <script src="js/main.js"></script>
 </head>
 
 <body>

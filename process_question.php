@@ -4,6 +4,8 @@
 
     //require_once "./tools/tools.php";
 
+    $totalQuestions = $_SESSION['totalQuestions'];
+    $_SESSION['totalQuestions'] = $totalQuestions;
 
     $questionNo = $_SESSION['questionsNumber'];
     $_SESSION['numQuestions'] = $questionNo;

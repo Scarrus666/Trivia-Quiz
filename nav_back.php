@@ -4,30 +4,44 @@
     
     require_once './tools/tools.php';
 
-    $questionNo = $_SESSION['questionsNumber'];
     $totalQuestions = $_SESSION['totalQuestions'];
+    $_SESSION['totalQuestions'] = $totalQuestions;
+
+    $questionNo = $_SESSION['questionsNumber'];
+    $pagesBack = $_SESSION['pagesBack'];
 
     $questionsLeft = $totalQuestions - $questionNo;
 
-    if($questionsLeft = 1)
+    if($questionsLeft == 1)
         {
+            $pagesBack++;
+
+            $_SESSION['pagesBack'] = $pagesBack;
             $_SESSION['numQuestions'] = $totalQuestions;
-            $_SESSION['pagesBack']++;
+
             header("Location: ./question.php");
             exit();
         }
 
-    else if($questionsLeft = 0)
+    else if($questionsLeft == 0)
         {
             $_SESSION['numQuestions'] = $totalQuestions;
+
             header("Location: ./question.php");
             exit();
         }
 
-    else $_SESSION['numQuestions'] = $questionNo + 2;
-    $_SESSION['pagesBack']++;
+    else if($questionsLeft > 1)
+        {
+            $pagesBack++;
+            $questionNo = $questionNo + 2;
 
-    header("Location: ./question.php");
-    exit();
+            $_SESSION['pagesBack'] = $pagesBack;
+            $_SESSION['numQuestions'] = $questionNo;
+
+            header("Location: ./question.php");
+            exit();
+        }
+
     
 ?>
