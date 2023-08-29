@@ -2,8 +2,6 @@
     session_start();
 
     require_once './tools/tools.php';
-    // require_once '/tools/db.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -23,10 +21,16 @@
 
 <body>
 
-    <div class="header">
+<div class="header">
+    <div class="home-link">
+        <a href="./reset.php">Home</a>
+    </div>
+    <div class="header-text">
         <h2>How well do you know?</h2>
         <h6>Come take a quiz with us and test your knowledge</h6>
     </div>
+</div>
+
 
     <div class="content gap-header">
         <div class="bubble bubble-big">

@@ -70,54 +70,60 @@
 
     <div class="header">
 
-        <div class="navigation">
-        <button class="nav-button" id="prevButton">&lt;</button>
-
-        <?php
-
-            if($topic == 'e-guitar')
-                {
-                    echo '<h1>What do you know about electric guitars?</h1>';
-                }
-
-            else if($topic == 'switzerland')
-                {
-                    echo '<h2>What do you know about Switzerland?</h2>';
-                }
-
-            else if($topic == 'harmonica')
-                {
-                    echo '<h2>What do you know about harmonicas?</h2>';
-                }
-
-            else if($topic == 'maths')
-                {
-                    echo '<h2>What do you know about mathematics?</h2>';
-                }
-
-            else if($topic == 'football')
-                {
-                    echo '<h2>What do you know about football?</h2>';
-                }
-
-            else if($topic == 'anatomy')
-                {
-                    echo '<h2>What do you know about anatomy?</h2>';
-                }
-
-            else if($topic == 'language')
-                {
-                    echo '<h2>What do you know about languages?</h2>';
-                }
-
-            else if($topic == 'swiss-animals')
-                {
-                    echo '<h2>What do you know about the animals in Switzerland?</h2>';
-                }
-        ?>
-
-        <button class="nav-button" id="nextButton">&gt;</button>
+        <div class="home-link">
+            <a href="./reset.php">Home</a>
         </div>
+
+        <div class="header-middle">
+            <div class="navigation">
+            <button class="nav-button" id="prevButton">&lt;</button>
+
+            <?php
+
+                if($topic == 'e-guitar')
+                    {
+                        echo '<h1>What do you know about electric guitars?</h1>';
+                    }
+
+                else if($topic == 'switzerland')
+                    {
+                        echo '<h2>What do you know about Switzerland?</h2>';
+                    }
+
+                else if($topic == 'harmonica')
+                    {
+                        echo '<h2>What do you know about harmonicas?</h2>';
+                    }
+
+                else if($topic == 'maths')
+                    {
+                        echo '<h2>What do you know about mathematics?</h2>';
+                    }
+
+                else if($topic == 'football')
+                    {
+                        echo '<h2>What do you know about football?</h2>';
+                    }
+
+                else if($topic == 'anatomy')
+                    {
+                        echo '<h2>What do you know about anatomy?</h2>';
+                    }
+
+                else if($topic == 'language')
+                    {
+                        echo '<h2>What do you know about languages?</h2>';
+                    }
+
+                else if($topic == 'swiss-animals')
+                    {
+                        echo '<h2>What do you know about the animals in Switzerland?</h2>';
+                    }
+            ?>
+
+            <button class="nav-button" id="nextButton">&gt;</button>
+            </div>
+            </div>
 
     </div>
 
@@ -127,7 +133,7 @@
         </div>
     </div> -->
 
-    <div class="content gap-header">
+<!--     <div class="content gap-header">
         <div class="bubble bubble-small box" style="font-size: 0.8em">
 
             <?php
@@ -153,9 +159,9 @@
             ?>
 
         </div>
-    </div>
+    </div> -->
 
-    <div class="content">
+    <div class="content gap-header">
         <div class="bubble bubble-small box">
             <!-- The question itself -->
 
@@ -221,6 +227,7 @@
 
                                     else
                                         {
+                                            echo 'No Mick Thomson pictures were found!<br>';
                                             err_rnd();
                                         }
 
