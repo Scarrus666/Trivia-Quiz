@@ -74,7 +74,9 @@ try
 
                 $_SESSION['score'] = 0;
                 $_SESSION['numQuestions'] = $questionsNum;
+                $_SESSION['totalQuestions'] = $questionsNum;
                 $_SESSION['topic'] = $topic;
+                $_SESSION['pagesBack'] = 0;
 
                 // go to the next page
                 header("Location: ./question.php");

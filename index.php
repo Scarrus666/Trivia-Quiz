@@ -14,9 +14,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./css/mystyle.css"/>
-    <script src="js/main.js"></script>
     <title>Take a Quiz!</title>
 
+    <script>
+        function validateForm() 
+            {
+                var quizDropdown = document.getElementById("quizDropdown");
+
+                if (quizDropdown.value === "") 
+                    {
+                        alert("Please select a topic before starting the quiz.");
+                        return false; // Prevent form submission
+                    }
+                
+                return true; // Allow form submission
+            }
+    </script>
 </head>
 
 <body>
@@ -74,12 +87,12 @@
 
     </div>
 
-    <form action="./pitstop.php" method="post">
+    <form action="./pitstop.php" method="post" onsubmit="return validateForm();">
 
         <div class="content">
             <div class="bubble bubble-secondary bubble-dropdown">
                 <!-- Quiz selection -->
-                <label for="quizDropdown">Choose the Theme<br><hr></label>
+                <label for="quizDropdown">Choose the Topic<br><hr></label>
                 <select id="quizDropdown" name="quizDropdown">
                     <option value="" disabled selected hidden>Please Select</option>
                     <option value="e-guitar">Electric Guitars</option>
@@ -99,7 +112,7 @@
         <!-- Number of Questions -->
                 <div class="question-container">
                     <label for="numQuestions">Number of Questions</label>
-                    <input type="number" id="numQuestions" name="numQuestions" min="1" value="10">
+                    <input type="number" id="numQuestions" name="numQuestions" min="1" value="5">
                 </div>
              </div>
         </div>

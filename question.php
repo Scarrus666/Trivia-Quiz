@@ -15,6 +15,7 @@
             if($questionNo < 0)
                 {
                     header("Location: ./report.php");
+                    exit();
                 }
         }
 
@@ -49,7 +50,7 @@
     <title>TTrivia Quiz</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <?php
 
         if($topic == "e-guitar")
@@ -76,7 +77,9 @@
 
         <div class="header-middle">
             <div class="navigation">
-            <button class="nav-button" id="prevButton">&lt;</button>
+            <form action="./nav_back.php">
+                <button class="nav-button" id="prevButton">&lt;</button>
+            </form>
 
             <?php
 
@@ -121,19 +124,20 @@
                     }
             ?>
 
-            <button class="nav-button" id="nextButton">&gt;</button>
+            <form action="./nav_forward.php">
+                <button class="nav-button" id="nextButton">&gt;</button>
+            </form>
             </div>
             </div>
 
     </div>
 
-<!--     <div class="content gap-header">
-        <div class="bubble bubble-big">
-            <div>Question No.</div>
-        </div>
-    </div> -->
 
-<!--     <div class="content gap-header">
+
+<!--     
+        THE FOLLOWING IS JUST FOR DEBUG PURPOSES
+
+        <div class="content gap-header">
         <div class="bubble bubble-small box" style="font-size: 0.8em">
 
             <?php

@@ -80,7 +80,7 @@ background-color: rgba(255, 255, 255, 0.1);
 
 .gap-header
 {
-margin-top: 10em; /* Adjust this value to leave space for the fixed header */
+margin-top: 5em; /* Adjust this value to leave space for the fixed header */
 }
 
 .content 
