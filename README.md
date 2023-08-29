@@ -1,6 +1,8 @@
 # Trivia-Quiz
 Opportunity Project Nr. 7
 
+The Figma Part: https://www.figma.com/file/fI7bcoByFVBj5CoCFCYvac/Wireframe-Trivia-Quiz?type=design&node-id=4-13&mode=design&t=MIa5DMX3FfFut6V3-0
+
 
 This is a Quiz about Geography, Biology, Zoology, Languages and more
 
